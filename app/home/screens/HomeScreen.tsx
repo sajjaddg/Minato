@@ -1,48 +1,48 @@
 import {useMemo} from "react";
 import {ScrollView, View} from "react-native";
-import {MovieSlider, PopularItem, SliderImage, WatchingItem} from "../components";
+import {useQuery} from "@tanstack/react-query";
+import {MovieSlider, AnimeItem, SliderImage} from "../components";
 import AppDivider from "../../../components/AppDivider";
+import {getPopularAnime, getTrendingAnime} from "../services/homeApi";
 
 
 function HomeScreen() {
+  const {isPending: popularLoading, data: apiPopularData} = useQuery({
+    queryKey: ['popular'],
+    queryFn: () => getPopularAnime({})
+  })
+  const popularData = useMemo(() => popularLoading ? [] : apiPopularData?.results, [popularLoading, apiPopularData])
 
-  const data = useMemo(() => [
-    {
-      id: 0,
-    },
-    {
-      id: 1,
-    },
-    {
-      id: 2,
-    },
-    {
-      id: 3,
-    },
-    {
-      id: 4,
-    },
-    {
-      id: 5,
-    }
-  ], [])
+  const {isPending: TrendingLoading, data: apiTrendingData} = useQuery({
+    queryKey: ['trending'],
+    queryFn: () => getTrendingAnime({})
+  })
+  const trendingData = useMemo(() => TrendingLoading ? [] : apiTrendingData?.results, [TrendingLoading, apiTrendingData])
 
   return (
     <ScrollView style={{gap: 2}} className='flex-1 bg-background-dark'>
       <SliderImage/>
       <AppDivider/>
-      <View style={{gap: 26, marginBottom: 64}}>
-        <MovieSlider
-          contentContainerStyle={{gap: 12, paddingHorizontal: 24}}
-          title='Continue Watching'
-          renderItem={WatchingItem}
-          {...{data}}
-        />
+      <View style={{gap: 12, marginBottom: 64}}>
+        {/*<MovieSlider*/}
+        {/*  contentContainerStyle={{gap: 12, paddingHorizontal: 24}}*/}
+        {/*  title='Continue Watching'*/}
+        {/*  renderItem={WatchingItem}*/}
+        {/*  {...{data}}*/}
+        {/*/>*/}
         <MovieSlider
           contentContainerStyle={{gap: 12, paddingHorizontal: 24}}
           title='Popular'
-          renderItem={PopularItem}
-          {...{data}}
+          renderItem={({item}) => <AnimeItem data={item}/>}
+          data={popularData}
+          loading={popularLoading}
+        />
+        <MovieSlider
+          contentContainerStyle={{gap: 12, paddingHorizontal: 24}}
+          title='Trending'
+          renderItem={({item}) => <AnimeItem data={item}/>}
+          data={trendingData}
+          loading={TrendingLoading}
         />
       </View>
     </ScrollView>

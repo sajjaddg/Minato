@@ -18,7 +18,7 @@ const WatchingItem = () => {
 const Header = () => {
   return (
     <LinearGradient
-      className='w-[181] p-px overflow-hidden rounded-t-[10]'
+      className='w-[181] p-px overflow-hidden rounded-t-[10px]'
       start={{x: 0, y: 0}}
       end={{x: 0, y: 0.75}}
       colors={['rgba(231, 7, 58, 1)', 'rgba(231, 7, 58, 0)']}>

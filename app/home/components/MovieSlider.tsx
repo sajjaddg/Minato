@@ -4,9 +4,10 @@ import AppTypography from "../../../components/AppTypography";
 
 interface MovieSliderProps extends FlatListProps<any> {
   title: string,
+  loading: boolean,
 }
 
-const MovieSlider: FC<MovieSliderProps> = ({title, ...props}) => {
+const MovieSlider: FC<MovieSliderProps> = ({title, loading, ...props}) => {
   return (
     <View style={{gap: 12}}>
       <View className='flex-row justify-between items-end px-6 pt-6'>
@@ -15,11 +16,14 @@ const MovieSlider: FC<MovieSliderProps> = ({title, ...props}) => {
           <AppTypography weight='light' className='text-[12px]'>See All</AppTypography>
         </TouchableOpacity>
       </View>
-      <FlatList
-        horizontal
-        showsHorizontalScrollIndicator={false}
-        {...props}
-      />
+      {
+        loading ? null :
+          <FlatList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            {...props}
+          />
+      }
     </View>
   );
 };
