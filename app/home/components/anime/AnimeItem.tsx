@@ -20,13 +20,13 @@ const AnimeItem = ({data}: { data: AnimeResult }) => {
 const Header = ({image, color}: { image: string, color: string }) => {
   return (
     <LinearGradient
-      className='w-full p-px overflow-hidden rounded-t-[10px]'
+      className='w-full p-px overflow-hidden rounded-[10px]'
       start={{x: 0, y: 0}}
       end={{x: 0, y: 0.75}}
       colors={[color, 'transparent']}>
       <ImageBackground
         className='w-[120px] h-[160px] justify-end '
-        imageStyle={{borderTopLeftRadius: 10, borderTopRightRadius: 10}}
+        imageStyle={{borderRadius: 10}}
         source={{uri: image}}
         resizeMode="cover"
       >
