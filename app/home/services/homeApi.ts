@@ -1,8 +1,8 @@
 import {useApi} from "../../../utils/api-helper";
-import {Anime, getPopularAnimeProps} from "../types/homeApiType";
+import {Anime, AnimeResult, getAnimeProps, RecentAnime} from "../types/homeApiType";
 
-export const getPopularAnime = async ({page = 1, perPage = 8}: getPopularAnimeProps) => {
-  const response = await useApi.get<Anime>('/popular', {
+export const getPopularAnime = async ({page = 1, perPage = 8}: getAnimeProps) => {
+  const response = await useApi.get<Anime<AnimeResult>>('/popular', {
     params: {
       page,
       perPage
@@ -10,12 +10,22 @@ export const getPopularAnime = async ({page = 1, perPage = 8}: getPopularAnimePr
   });
   return response.data;
 }
-export const getTrendingAnime = async ({page = 1, perPage = 8}: getPopularAnimeProps) => {
-  const response = await useApi.get<Anime>('/trending', {
+export const getTrendingAnime = async ({page = 1, perPage = 8}: getAnimeProps) => {
+  const response = await useApi.get<Anime<AnimeResult>>('/trending', {
     params: {
       page,
       perPage
     }
   });
+  return response.data;
+}
+
+export const getRecentAnime = async ({page = 1, perPage = 8}: getAnimeProps) => {
+  const response = await useApi.get<Anime<RecentAnime>>('/recent-episodes', {
+    params: {
+      page,
+      perPage
+    }
+  })
   return response.data;
 }

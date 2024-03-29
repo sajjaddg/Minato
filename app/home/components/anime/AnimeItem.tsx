@@ -7,7 +7,7 @@ import usePopularItem from "./useAnimeItem";
 const AnimeItem = ({data}: { data: AnimeResult }) => {
   const {title, image, color} = usePopularItem(data)
   return (
-    <TouchableOpacity style={{gap: 4}} className='w-[121px]'>
+    <TouchableOpacity style={{gap: 4}} className='w-[122px]'>
       <Header {...{image, color}}/>
       <AppTypography
         className='text-[12px] w-[80%] max-h-14'

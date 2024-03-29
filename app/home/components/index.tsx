@@ -1,12 +1,13 @@
 import MovieSlider from "./MovieSlider";
-import AnimeItem from "./anime/AnimeItem";
-import SliderImage from "./SliderImage";
+import RecentSlider from "./RecentSlider";
 import WatchingItem from "./WatchingItem";
-
+import AnimeItem from "./anime/AnimeItem";
+import RecentItem from "./recent/RecentItem";
 
 export {
+  RecentItem,
   WatchingItem,
-  SliderImage,
+  RecentSlider,
   AnimeItem,
   MovieSlider,
 };

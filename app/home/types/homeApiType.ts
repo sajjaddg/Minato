@@ -1,4 +1,4 @@
-export type getPopularAnimeProps = {
+export type getAnimeProps = {
   page?: number,
   perPage?: number
 }
@@ -33,8 +33,24 @@ export type AnimeResult = {
   type: string;
 };
 
-export type Anime = {
+export type RecentAnime = {
+  id: string;
+  malId: string;
+  title: {
+    romaji: string;
+    english: string;
+    native: string;
+  };
+  image: string;
+  imageHash: string;
+  episodeId: string;
+  episodeTitle: string;
+  episodeNumber: number;
+  type: string;
+};
+
+export type Anime<T> = {
   currentPage: number;
   hasNextPage: boolean;
-  results: AnimeResult[];
+  results: T[];
 };
