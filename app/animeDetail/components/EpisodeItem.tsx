@@ -1,10 +1,18 @@
-import {ImageBackground} from "react-native";
+import {ImageBackground, View} from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
+import {shortenTitle} from "../../../utils/text-helper";
 import AppDivider from "../../../components/AppDivider";
+import AppTypography from "../../../components/AppTypography";
 
 const EpisodeItem = () => {
   return (
-    <EpisodeImage/>
+    <View style={{gap: 12}} className='flex-row'>
+      <EpisodeImage/>
+      <View style={{gap: 8}}>
+        <AppTypography className='text-[16px]'>1 : Ryomen Sukuna</AppTypography>
+        <AppTypography weight='light' className='text-[12px] max-w-[230px]'>{shortenTitle('As Itadori cares for his grandpa, Fushiguro worries that he\'s carrying a cursed object of rare power. The Occult club messes with something far beyond their understanding.',100)}</AppTypography>
+      </View>
+    </View>
   );
 };
 

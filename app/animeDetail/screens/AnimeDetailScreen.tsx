@@ -1,9 +1,8 @@
-import {ImageBackground, ScrollView, View} from "react-native";
+import {ScrollView, View} from "react-native";
 import HeaderImage from "../components/HeaderImage";
 import AppDivider from "../../../components/AppDivider";
 import Description from "../components/Description";
 import AppTypography from "../../../components/AppTypography";
-import {LinearGradient} from "expo-linear-gradient";
 import EpisodeItem from "../components/EpisodeItem";
 
 function AnimeDetailScreen() {
@@ -15,7 +14,12 @@ function AnimeDetailScreen() {
       <AppDivider color='#383e41'/>
       <View style={{gap: 28}} className='p-5'>
         <AppTypography weight='bold' className='text-[16px]'>Episodes</AppTypography>
-        <EpisodeItem/>
+        <View style={{gap:12}}>
+          <EpisodeItem/>
+          <EpisodeItem/>
+          <EpisodeItem/>
+          <EpisodeItem/>
+        </View>
       </View>
     </ScrollView>
   )
