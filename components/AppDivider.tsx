@@ -6,7 +6,7 @@ type AppDividerProps = {
   style?: ViewProps,
   color?: string
 }
-const AppDivider: FC<AppDividerProps> = ({style, color = 'rgba(231, 7, 58, 1)'}) => {
+const AppDivider: FC<AppDividerProps> = ({style, color = '#e7073a'}) => {
   return (
     <LinearGradient
       style={[{height: 1, width: '100%'}, style]}
