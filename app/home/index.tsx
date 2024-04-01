@@ -1,7 +1,7 @@
 import {ScrollView, View} from "react-native";
-import {MovieSlider, AnimeItem, RecentSlider, RecentItem} from "../components";
-import AppDivider from "../../../components/AppDivider";
-import CallHomeApis from "../services/CallHomeApis";
+import {MovieSlider, AnimeItem, RecentSlider} from "./components";
+import AppDivider from "../../components/AppDivider";
+import CallHomeApis from "./services/CallHomeApis";
 
 
 function HomeScreen() {

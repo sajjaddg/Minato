@@ -3,27 +3,26 @@ import {LinearGradient} from "expo-linear-gradient";
 import AppTypography from "../../../../components/AppTypography";
 import {AnimeResult} from "../../types/homeApiType";
 import usePopularItem from "./useAnimeItem";
+import {shortenTitle} from "../../../../utils/text-helper";
 
 const AnimeItem = ({data}: { data: AnimeResult }) => {
-  const {title, image, color} = usePopularItem(data)
+  const {title, image} = usePopularItem(data)
   return (
     <TouchableOpacity style={{gap: 4}} className='w-[122px]'>
-      <Header {...{image, color}}/>
+      <Header {...{image}}/>
       <AppTypography
-        className='text-[12px] w-[80%] max-h-14'
-        ellipsizeMode='tail'
-        numberOfLines={2}>{title}</AppTypography>
+        className='text-[12px]'>{shortenTitle(title??'',30)}</AppTypography>
     </TouchableOpacity>
   );
 };
 
-const Header = ({image, color}: { image: string, color: string }) => {
+const Header = ({image}: { image: string}) => {
   return (
     <LinearGradient
       className='w-full p-px overflow-hidden rounded-[10px]'
       start={{x: 0, y: 0}}
       end={{x: 0, y: 0.75}}
-      colors={[color, 'transparent']}>
+      colors={['#E7073A', 'transparent']}>
       <ImageBackground
         className='w-[120px] h-[160px] justify-end '
         imageStyle={{borderRadius: 10}}

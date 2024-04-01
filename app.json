@@ -6,6 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
+    "scheme": "minato",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -30,9 +31,12 @@
       [
         "expo-font",
         {
-          "fonts": ["./assets/fonts/PassionOne-Bold.ttf"]
+          "fonts": [
+            "./assets/fonts/PassionOne-Bold.ttf"
+          ]
         }
-      ]
+      ],
+      "expo-router"
     ]
   }
 }
