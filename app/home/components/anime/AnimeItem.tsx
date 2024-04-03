@@ -1,22 +1,25 @@
-import {ImageBackground, TouchableOpacity, View} from "react-native";
+import {ImageBackground, TouchableOpacity} from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
-import AppTypography from "../../../../components/AppTypography";
+import {shortenTitle} from "../../../../utils/text-helper";
 import {AnimeResult} from "../../types/homeApiType";
 import usePopularItem from "./useAnimeItem";
-import {shortenTitle} from "../../../../utils/text-helper";
+import AppTypography from "../../../../components/AppTypography";
+import {Link} from "expo-router";
 
 const AnimeItem = ({data}: { data: AnimeResult }) => {
-  const {title, image} = usePopularItem(data)
+  const {title, image, id} = usePopularItem(data)
   return (
-    <TouchableOpacity style={{gap: 4}} className='w-[122px]'>
-      <Header {...{image}}/>
-      <AppTypography
-        className='text-[12px]'>{shortenTitle(title??'',30)}</AppTypography>
-    </TouchableOpacity>
+    <Link href={`/animeDetail/${id}`} asChild>
+      <TouchableOpacity style={{gap: 4}} className='w-[122px]'>
+        <Header {...{image}}/>
+        <AppTypography
+          className='text-[12px]'>{shortenTitle(title ?? '', 30)}</AppTypography>
+      </TouchableOpacity>
+    </Link>
   );
 };
 
-const Header = ({image}: { image: string}) => {
+const Header = ({image}: { image: string }) => {
   return (
     <LinearGradient
       className='w-full p-px overflow-hidden rounded-[10px]'

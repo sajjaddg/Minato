@@ -1,27 +1,37 @@
+import {FC} from "react";
 import {ImageBackground, View} from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
 import {shortenTitle} from "../../../utils/text-helper";
 import AppDivider from "../../../components/AppDivider";
 import AppTypography from "../../../components/AppTypography";
 
-const EpisodeItem = () => {
+type EpisodeProps = {
+  title: string,
+  image: string,
+  description: string | null
+}
+
+const EpisodeItem: FC<EpisodeProps> = ({title, image, description}) => {
   return (
     <View style={{gap: 12}} className='flex-row'>
-      <EpisodeImage/>
+      <EpisodeImage {...{image}}/>
       <View style={{gap: 8}}>
-        <AppTypography className='text-[16px]'>1 : Ryomen Sukuna</AppTypography>
-        <AppTypography weight='light' className='text-[12px] max-w-[230px]'>{shortenTitle('As Itadori cares for his grandpa, Fushiguro worries that he\'s carrying a cursed object of rare power. The Occult club messes with something far beyond their understanding.',100)}</AppTypography>
+        <AppTypography className='text-[16px]'>{title}</AppTypography>
+        <AppTypography
+          weight='light'
+          className='text-[12px] max-w-[230px]'>
+          {shortenTitle(description ?? '', 100)}</AppTypography>
       </View>
     </View>
   );
 };
 
-const EpisodeImage = () => {
+const EpisodeImage = ({image}: { image: string }) => {
   return (
     <ImageBackground
       className='w-[140px] h-[90px] justify-end'
       imageStyle={{borderRadius: 10}}
-      source={require('../../../assets/images/demen.jpeg')}
+      source={{uri: image}}
       resizeMode="cover"
     >
       <LinearGradient

@@ -2,7 +2,7 @@ import {View} from "react-native";
 import AppTypography from "../../../components/AppTypography";
 import {LinearGradient} from "expo-linear-gradient";
 
-function GenreItem() {
+function GenreItem({title}: { title: string }) {
   return (
     <LinearGradient
       className='p-px self-start rounded-[6px] overflow-hidden'
@@ -11,7 +11,7 @@ function GenreItem() {
       colors={['transparent', '#e7073acc']}
     >
       <View className='px-4 py-2 rounded-[6px] bg-background-dark'>
-        <AppTypography>Adventure</AppTypography>
+        <AppTypography>{title}</AppTypography>
       </View>
     </LinearGradient>
   );
