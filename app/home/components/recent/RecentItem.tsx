@@ -4,7 +4,6 @@ import {ImageBackground, Pressable, View} from "react-native";
 import {shortenTitle} from "../../../../utils/text-helper";
 import {RecentAnime} from "../../types/homeApiType";
 import AppTypography from "../../../../components/AppTypography";
-import AppDivider from "../../../../components/AppDivider";
 
 type RecentItemProps = {
   data: RecentAnime

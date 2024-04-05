@@ -2,16 +2,16 @@ import {FC} from "react";
 import {ImageBackground, View} from "react-native";
 import {LinearGradient} from "expo-linear-gradient";
 import {shortenTitle} from "../../../utils/text-helper";
+import {Episode} from "../types/animeApiDetailtypes";
 import AppDivider from "../../../components/AppDivider";
 import AppTypography from "../../../components/AppTypography";
 
-type EpisodeProps = {
-  title: string,
-  image: string,
-  description: string | null
+type EpisodeProp = {
+  data: Episode
 }
 
-const EpisodeItem: FC<EpisodeProps> = ({title, image, description}) => {
+const EpisodeItem: FC<EpisodeProp> = ({data}) => {
+  const {title, image, description} = data
   return (
     <View style={{gap: 12}} className='flex-row'>
       <EpisodeImage {...{image}}/>

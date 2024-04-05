@@ -82,7 +82,7 @@ type Artwork = {
   providerId: string;
 };
 
-type Episode = {
+export type Episode = {
   id: string;
   title: string;
   description: string | null;
