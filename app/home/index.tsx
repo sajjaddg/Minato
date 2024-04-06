@@ -1,7 +1,7 @@
 import {ScrollView, View} from "react-native";
 import {MovieSlider, AnimeItem, RecentSlider} from "./components";
 import AppDivider from "../../components/AppDivider";
-import CallHomeApis from "./services/CallHomeApis";
+import callHomeApis from "./services/callHomeApis";
 
 
 function HomeScreen() {
@@ -12,7 +12,7 @@ function HomeScreen() {
     popularLoading,
     recentLoading,
     trendingLoading,
-  } = CallHomeApis()
+  } = callHomeApis()
 
   return (
     <ScrollView style={{gap: 2}} className='flex-1 bg-background-dark'>

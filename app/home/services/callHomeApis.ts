@@ -2,7 +2,7 @@ import {useMemo} from "react";
 import {useQuery} from "@tanstack/react-query";
 import {getPopularAnime, getRecentAnime, getTrendingAnime} from "./homeApi";
 
-const CallHomeApis = () => {
+const callHomeApis = () => {
   const {
     isPending: recentLoading,
     data: recentPopularData
@@ -46,4 +46,4 @@ const CallHomeApis = () => {
   return {...mergedData}
 };
 
-export default CallHomeApis
+export default callHomeApis
